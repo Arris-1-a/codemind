@@ -183,10 +183,6 @@ export class Reviewer {
    * AI-powered review
    */
   private async aiReview(diff: DiffResult): Promise<ReviewSummary> {
-    if (!this.provider) {
-      return this.staticReview(diff);
-    }
-
     const diffSummary = diff.files
       .map((f) => `${f.changeType}: ${f.newPath} (+${f.summary.linesAdded}/-${f.summary.linesRemoved})`)
       .join('

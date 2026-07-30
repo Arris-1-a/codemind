@@ -164,8 +164,13 @@ export class WebhookHandler {
       const signature = req.headers['x-hub-signature-256'] || '';
       
       const result = await this.process(event, req.body as WebhookPayload, signature);
-      
-      res.status(result.status).json(JSON.parse(result.body));
+
+      try {
+        const body = JSON.parse(result.body);
+        res.status(result.status).json(body);
+      } catch {
+        res.status(result.status).json({ message: result.body });
+      }
     };
   }
 }

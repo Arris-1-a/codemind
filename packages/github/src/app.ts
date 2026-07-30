@@ -106,7 +106,7 @@ export class GitHubApp {
     const response = await fetch(`https://api.github.com${req.path}`, {
       method: req.method || 'GET',
       headers: {
-        Authorization: `token ${token}`,
+        Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.v3+json',
         'Content-Type': 'application/json',
         ...req.headers,

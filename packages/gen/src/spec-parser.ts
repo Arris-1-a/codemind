@@ -203,7 +203,7 @@ export class SpecParser {
   }
 
   /**
-   * Extract methods from description
+   * Extract methods from description — currently a stub for future NLP parsing.
    */
   private extractMethods(description: string): SpecMethod[] {
     const methods: SpecMethod[] = [];

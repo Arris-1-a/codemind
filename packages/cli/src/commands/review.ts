@@ -77,7 +77,7 @@ export async function reviewCommand(options: ReviewCommandOptions): Promise<void
     minSeverity: (options.severity as 'error' | 'warning' | 'info' | 'hint') || 'hint',
   });
 
-  let reviewResult;
+  let reviewResult: ReturnType<typeof analyzer.analyze>;
   await withSpinner(
     'analyze',
     'Analyzing code...',
@@ -92,6 +92,10 @@ export async function reviewCommand(options: ReviewCommandOptions): Promise<void
     format: (options.format as 'markdown' | 'json' | 'sarif' | 'compact') || 'compact',
     includeSnippets: options.format !== 'compact',
   });
+
+  if (!reviewResult!) {
+    throw new Error('Review analysis produced no result');
+  }
 
   const report = reporter.generate(reviewResult!);
 

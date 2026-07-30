@@ -75,7 +75,11 @@ export class DeepSeekProvider extends BaseProvider {
       model: string;
     };
 
-    const choice = data.choices[0];
+    const choice = data.choices?.[0];
+    if (!choice?.message) {
+      throw new Error(`DeepSeek API returned an empty response`);
+    }
+
     return {
       message: choice.message,
       usage: data.usage

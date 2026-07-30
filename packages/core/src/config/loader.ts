@@ -169,8 +169,7 @@ export class ConfigLoader {
    */
   private parseYAML(content: string): Partial<CodemindConfig> {
     const result: Record<string, unknown> = {};
-    const lines = content.split('
-');
+    const lines = content.split('\n');
     let currentSection: Record<string, unknown> | null = null;
     let currentKey = '';
 

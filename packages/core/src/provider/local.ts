@@ -84,7 +84,11 @@ export class LocalProvider extends BaseProvider {
       model: string;
     };
 
-    const choice = data.choices[0];
+    const choice = data.choices?.[0];
+    if (!choice?.message) {
+      throw new Error(`Local model returned an empty response`);
+    }
+
     return {
       message: choice.message,
       usage: data.usage
