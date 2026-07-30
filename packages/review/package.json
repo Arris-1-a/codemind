@@ -1,0 +1,29 @@
+{
+  "name": "@codemind/review",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI code review \u2014 security vulnerabilities, performance issues, code smells, best practices",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@codemind/core": "workspace:*",
+    "diff": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.2.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/review" },
+    { "path": "packages/pr" },
+    { "path": "packages/gen" },
+    { "path": "packages/doc" },
+    { "path": "packages/cli" },
+    { "path": "packages/github" }
+  ]
+}

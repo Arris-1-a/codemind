@@ -1,0 +1,36 @@
+{
+  "name": "@codemind/cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CLI tool \u2014 review, PR, gen, doc, config commands with interactive mode",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@codemind/core": "workspace:*",
+    "@codemind/review": "workspace:*",
+    "@codemind/pr": "workspace:*",
+    "@codemind/gen": "workspace:*",
+    "@codemind/doc": "workspace:*",
+    "commander": "^12.1.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.0",
+    "inquirer": "^9.3.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
+}

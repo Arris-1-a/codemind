@@ -1,0 +1,27 @@
+{
+  "name": "@codemind/pr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PR assistant \u2014 summarization, description generation, auto review, change navigation",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@codemind/core": "workspace:*",
+    "@codemind/review": "workspace:*"
+  },
+  "devDependencies": {}
+}
